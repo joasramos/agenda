@@ -62,7 +62,7 @@ public class HomePage extends JFrame {
 
         lb1 = new JLabel("Nome: ");
 
-        tf1 = new JTextField(30);
+        tf1 = new JTextField(20);
 
         jb1 = new JButton("Buscar");
         jb2 = new JButton("Novo+");
