@@ -21,7 +21,6 @@ public class ControleContato {
     private HomePage hp;
     private ContactService cs;
     private SimpleEntityManager em;
-    private int teste;
 
     public ControleContato() {
         init();        
