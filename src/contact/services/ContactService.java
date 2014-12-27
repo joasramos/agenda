@@ -8,6 +8,7 @@ import contacts.dao.SimpleEntityManager;
 import contacts.model.Contact;
 import contacts.dao.ContactDAO;
 import java.util.List;
+import javax.persistence.Query;
 
 /**
  *
@@ -31,5 +32,10 @@ public class ContactService {
 
     public List<Contact> findALL() {
         return this.dao.findAll();
+    }
+
+    public List<Contact> findAllByName(String nome) {
+        Query q = simpleEntityManager.getEntityManager().createQuery("FROM Contact c WHERE c.nome LIKE '%" + nome + "%'");
+        return q.getResultList();
     }
 }

@@ -78,8 +78,6 @@ public class HomePage extends JFrame {
     }
 
     private void addElements() {
-
-
         /*
          * adicionando elementos ao painel 1
          */
@@ -87,12 +85,10 @@ public class HomePage extends JFrame {
         pn1.add(tf1);
         pn1.add(jb1);
 
-
         /*
          * adicionando elementos ao painel 2
          */
         pn2.add(sp1);
-
 
         this.add(pn1);
         this.add(pn2);
@@ -119,7 +115,7 @@ public class HomePage extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ManagerContato(controle).setVisible(true); 
+                new ManagerContato(controle).setVisible(true);
             }
         });
 
@@ -129,7 +125,7 @@ public class HomePage extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 int i = tbl1.getSelectedRow();
                 Contact c = list.get(i);
-                new DetailContato(c).setVisible(true);                
+                new DetailContato(c).setVisible(true);
             }
 
             @Override
@@ -146,6 +142,14 @@ public class HomePage extends JFrame {
 
             @Override
             public void mouseExited(MouseEvent e) {
+            }
+        });
+
+        jb1.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controle.carregaContatos(tf1.getText()); 
             }
         });
     }

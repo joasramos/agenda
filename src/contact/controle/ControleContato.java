@@ -26,8 +26,7 @@ public class ControleContato {
         init();        
         hp = new HomePage(this);
         hp.setVisible(true); 
-        carregaContatos();
-        
+        carregaContatos("");
     }
 
     private void init() {
@@ -36,11 +35,11 @@ public class ControleContato {
         cs = new ContactService(em);
     }
 
-    private void carregaContatos() {
+    public void carregaContatos(String nome) {
         /*
          * Carregamos lista de contatos
          */
-        List<Contact> l = cs.findALL();
+        List<Contact> l = cs.findAllByName(nome);//cs.findALL();
         hp.setList(l);
         
         /*
@@ -63,6 +62,6 @@ public class ControleContato {
     public void salvarContato(Contact c){
         cs.saveContact(c); 
 //        em.close();
-        this.carregaContatos();
+        this.carregaContatos("");
     }
 }
