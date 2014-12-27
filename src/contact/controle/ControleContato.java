@@ -6,7 +6,7 @@ import contact.listagem.ModeloListaContatos;
 import contact.services.ContactService;
 import contacts.dao.SimpleEntityManager;
 import contacts.model.Contact;
-import java.util.List;
+import java.util.List; 
 
 /*
  * To change this template, choose Tools | Templates and open the template in
@@ -21,6 +21,7 @@ public class ControleContato {
     private HomePage hp;
     private ContactService cs;
     private SimpleEntityManager em;
+    private int teste;
 
     public ControleContato() {
         init();        
