@@ -4,9 +4,9 @@
  */
 package contact.services;
 
+import contacts.dao.ContactDAO;
 import contacts.dao.SimpleEntityManager;
 import contacts.model.Contact;
-import contacts.dao.ContactDAO;
 import java.util.List;
 import javax.persistence.Query;
 
@@ -30,6 +30,11 @@ public class ContactService {
         simpleEntityManager.commit();
     }
 
+    public void dropContact(Contact c){
+        simpleEntityManager.beginTransaction();
+        dao.delete(c);
+        simpleEntityManager.commit();
+    }
     public List<Contact> findALL() {
         return this.dao.findAll();
     }

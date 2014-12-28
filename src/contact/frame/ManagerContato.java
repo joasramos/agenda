@@ -96,7 +96,7 @@ public class ManagerContato extends JDialog {
 
     private void setObject() {
 
-        DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yy");
         Date date = null;
 
         try {
@@ -118,5 +118,5 @@ public class ManagerContato extends JDialog {
 
     private void closeDialog() {
        dispose();
-    }
+    } 
 }

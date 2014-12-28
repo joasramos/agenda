@@ -125,7 +125,7 @@ public class HomePage extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 int i = tbl1.getSelectedRow();
                 Contact c = list.get(i);
-                new DetailContato(c).setVisible(true);
+                new DetailContato(c, controle).setVisible(true);
             }
 
             @Override

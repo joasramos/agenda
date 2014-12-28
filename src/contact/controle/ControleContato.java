@@ -1,12 +1,11 @@
 package contact.controle;
 
-
 import contact.frame.HomePage;
 import contact.listagem.ModeloListaContatos;
 import contact.services.ContactService;
 import contacts.dao.SimpleEntityManager;
 import contacts.model.Contact;
-import java.util.List; 
+import java.util.List;
 
 /*
  * To change this template, choose Tools | Templates and open the template in
@@ -23,9 +22,9 @@ public class ControleContato {
     private SimpleEntityManager em;
 
     public ControleContato() {
-        init();        
+        init();
         hp = new HomePage(this);
-        hp.setVisible(true); 
+        hp.setVisible(true);
         carregaContatos("");
     }
 
@@ -36,32 +35,32 @@ public class ControleContato {
     }
 
     public void carregaContatos(String nome) {
+
         /*
          * Carregamos lista de contatos
          */
-        List<Contact> l = cs.findAllByName(nome);//cs.findALL();
+        List<Contact> l = cs.findAllByName(nome);
         hp.setList(l);
-        
+
         /*
          * Carregamos modelo de lista com a lista de contatos
          */
         ModeloListaContatos ml = new ModeloListaContatos(l);
-        
+
         /**
          * Ajustamos tabela de contatos
          */
-        
         hp.setTable(ml);
-        
-        /*
-         * Fechamos conexão
-         */
-//        em.close();
+
+    }
+
+    public void salvarContato(Contact c) {
+        cs.saveContact(c);
+        this.carregaContatos("");
     }
     
-    public void salvarContato(Contact c){
-        cs.saveContact(c); 
-//        em.close();
-        this.carregaContatos("");
+    public void deletarContato(Contact c){
+       cs.dropContact(c);
+       this.carregaContatos(""); 
     }
 }
